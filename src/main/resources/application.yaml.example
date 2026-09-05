@@ -1,6 +1,8 @@
 spring:
   application:
     name: impossible
+  config:
+    import: classpath:ontology.yml
   datasource:
     url: jdbc:mysql://localhost:3306/gcc
     username: your_db_username
@@ -10,3 +12,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+# 공공데이터포털 - 국세청_사업자등록정보 진위확인 및 상태조회 서비스
+nts:
+  service-key: YOUR_DATA_GO_KR_SERVICE_KEY
+  base-url: https://api.odcloud.kr/api/nts-businessman/v1
+
+# 카카오 디벨로퍼스 - REST API 키 (아직 미발급이면 빈 값으로 두면 됨, geocoding은 빈 결과 반환)
+kakao:
+  rest-key: ""
