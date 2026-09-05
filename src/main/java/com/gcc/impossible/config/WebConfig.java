@@ -18,9 +18,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // FE(Vite) 로컬 개발 서버 오리진 허용
         registry.addMapping("/api/**")
-                .allowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*")
+                .allowedOriginPatterns(
+                        // FE(Vite) 로컬 개발 서버
+                        "http://localhost:*",
+                        "http://127.0.0.1:*",
+                        // FE 배포 도메인 (Vercel) — 같은 프로젝트의 프리뷰 배포까지 커버
+                        "https://fe-6ab3.vercel.app",
+                        "https://fe-6ab3-*.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }
