@@ -1,4 +1,8 @@
 package com.gcc.impossible.merchant;
 
-public record NewsSendResultDto(int weeklySlotUsed, int weeklySlotTotal) {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+public record NewsSendResultDto(
+        @Schema(example = "2") int weeklySlotUsed,
+        @Schema(example = "2") int weeklySlotTotal) {
 }
