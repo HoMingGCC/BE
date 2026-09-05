@@ -1,0 +1,25 @@
+# 배포(EC2) 프로필 — 비밀값은 전부 환경변수로 주입한다. 이 파일 자체엔 비밀 없음, 커밋 대상.
+# 실행: java -jar app.jar --spring.profiles.active=prod
+#      (또는 환경변수 SPRING_PROFILES_ACTIVE=prod)
+spring:
+  config:
+    import: classpath:ontology.yml
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: ${SERVER_PORT:8080}
+
+nts:
+  service-key: ${NTS_SERVICE_KEY}
+  base-url: https://api.odcloud.kr/api/nts-businessman/v1
+
+kakao:
+  rest-key: ${KAKAO_REST_KEY:}

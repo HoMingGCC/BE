@@ -1,0 +1,11 @@
+build/
+.gradle/
+.idea/
+*.iml
+out/
+bin/
+src/main/resources/application.yaml
+src/main/resources/application-*.yaml
+!src/main/resources/application-prod.yaml
+.env
+.env.*

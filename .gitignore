@@ -7,9 +7,16 @@ src/main/resources/application.yaml
 src/main/resources/application.yml
 src/main/resources/application-*.yaml
 src/main/resources/application-*.yml
+# application-prod.yaml 은 비밀값 없이 환경변수 참조만 담고 있어 커밋 대상
+!src/main/resources/application-prod.yaml
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+### 배포용 비밀값 (커밋 금지) ###
+.env
+.env.*
+!.env.*.example
 
 ### STS ###
 .apt_generated
