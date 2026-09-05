@@ -2,6 +2,13 @@
 
 BE를 EC2(Docker) + RDS(MySQL)로 띄우는 순서입니다. 코드 쪽 준비(Dockerfile, `application-prod.yaml`, CORS 허용 목록)는 이미 되어 있고, 아래는 AWS 콘솔에서 직접 할 작업입니다.
 
+## 실제 배포 현황
+
+- **API base URL**: `https://gcc.z0.co.kr` (HTTPS, Let's Encrypt 인증서 적용됨)
+- **EC2**: Ubuntu 26.04 LTS (아래 2~5번은 Amazon Linux 기준 설명이라 `dnf` 대신 `apt` 사용, 사용자는 `ec2-user`가 아니라 `ubuntu`)
+- **RDS**: `homing-db` (MySQL 8.4, `gcc` 스키마)
+- **CI/CD**: 6번 섹션의 GitHub Actions로 자동 배포 중 — 2~5번의 수동 빌드 절차는 더 이상 쓰지 않음(참고용으로만 남겨둠)
+
 ## 0. 미리 알아둘 것 — HTTPS가 필수인 이유
 
 FE(`https://fe-6ab3.vercel.app`)는 HTTPS로 떠 있습니다. 브라우저는 HTTPS 페이지에서 HTTP API를 호출하는 걸 mixed content로 차단하기 때문에, **EC2를 그냥 HTTP(포트 8080)로만 열어두면 배포된 FE에서는 호출이 안 됩니다.** 그래서 3번(Nginx + HTTPS)까지 마쳐야 실제 연동이 됩니다.
@@ -60,17 +67,17 @@ FE(`https://fe-6ab3.vercel.app`)는 HTTPS로 떠 있습니다. 브라우저는 H
 
 ## 3. Nginx + Let's Encrypt로 HTTPS 붙이기
 
-도메인의 A 레코드를 EC2 퍼블릭 IP(탄력적 IP 권장 — 재부팅해도 안 바뀜)로 먼저 연결해두세요.
+도메인의 A 레코드를 EC2 퍼블릭 IP(탄력적 IP 권장 — 재부팅해도 안 바뀜)로 먼저 연결해두세요. (현재는 `gcc.z0.co.kr` → EC2 퍼블릭 IP로 연결됨, 탄력적 IP는 아직 미적용)
 
 ```bash
-sudo dnf install -y nginx
+sudo apt-get install -y nginx
 sudo systemctl enable --now nginx
 
-# /etc/nginx/conf.d/homing-be.conf
-sudo tee /etc/nginx/conf.d/homing-be.conf <<'EOF'
+# /etc/nginx/sites-available/homing-be.conf
+sudo tee /etc/nginx/sites-available/homing-be.conf <<'EOF'
 server {
     listen 80;
-    server_name api.yourdomain.com;   # 실제 도메인으로 교체
+    server_name gcc.z0.co.kr;   # 실제 도메인으로 교체
 
     location / {
         proxy_pass http://127.0.0.1:8080;
@@ -81,22 +88,24 @@ server {
     }
 }
 EOF
+sudo ln -sf /etc/nginx/sites-available/homing-be.conf /etc/nginx/sites-enabled/homing-be.conf
+sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo systemctl reload nginx
 
-# 인증서 발급 (certbot)
-sudo dnf install -y python3-certbot-nginx
-sudo certbot --nginx -d api.yourdomain.com
+# 인증서 발급 (certbot) — 이메일 등록 없이 발급하려면 --register-unsafely-without-email
+sudo apt-get install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d gcc.z0.co.kr --redirect
 ```
 
-certbot이 nginx 설정에 443/TLS를 자동으로 추가해줍니다. 완료 후:
+certbot이 nginx 설정에 443/TLS를 자동으로 추가하고, HTTP→HTTPS 리다이렉트도 설정해줍니다. 인증서는 90일마다 자동 갱신되도록 systemd 타이머가 등록됩니다. 완료 후:
 
 ```bash
-curl https://api.yourdomain.com/api/stores
+curl https://gcc.z0.co.kr/api/stores
 ```
 
 ## 4. FE에 전달할 정보
 
-- API base URL: `https://api.yourdomain.com` (도메인 확정되면 알려주세요 — 코드엔 이미 `https://fe-6ab3.vercel.app` CORS 허용이 되어 있어서 BE 쪽은 추가로 손댈 게 없습니다)
+- **API base URL: `https://gcc.z0.co.kr`** (코드엔 이미 `https://fe-6ab3.vercel.app` CORS 허용이 되어 있어서 BE 쪽은 추가로 손댈 게 없습니다)
 - 인증 없음 (전 엔드포인트 공개) — 데모 단계라 별도 로그인/토큰 불필요
 
 ## 5. 배포 후 시드 데이터 확인
