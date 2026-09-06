@@ -23,7 +23,7 @@ public class GeocodeController {
     @Operation(summary = "주소 → 좌표 변환")
     @GetMapping
     public GeoPoint geocode(
-            @Parameter(example = "대구 남구 봉덕로 21") @RequestParam String query) {
+            @Parameter(example = "대구 중구 달구벌대로 2109-32 1층") @RequestParam String query) {
         return geocodingClient
                 .geocode(query)
                 .orElseThrow(() -> ApiException.notFound("좌표를 찾을 수 없습니다 (카카오 REST 키 미설정 또는 검색결과 없음): " + query));

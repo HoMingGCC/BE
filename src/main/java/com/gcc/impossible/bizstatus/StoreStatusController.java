@@ -22,7 +22,7 @@ public class StoreStatusController {
     @Operation(summary = "사업자등록상태 조회", description = "국세청 진위확인 API로 실시간 조회하고, 실패 시 시드값으로 폴백한다.")
     @GetMapping("/{regno}/status")
     public BusinessStatusDto getStatus(
-            @Parameter(example = "514-81-10001") @PathVariable String regno) {
+            @Parameter(example = "111-11-11111") @PathVariable String regno) {
         return storeStatusService.resolveStatus(regno);
     }
 }

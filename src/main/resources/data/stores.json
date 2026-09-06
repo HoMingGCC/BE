@@ -1,0 +1,243 @@
+{
+  "stores": [
+    {
+      "bizNo": "111-11-11111",
+      "name": "태산만두 본점",
+      "address": "대구 중구 달구벌대로 2109-32 1층",
+      "lat": 35.866038,
+      "lng": 128.593745,
+      "category": "분식",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이"
+    },
+    {
+      "bizNo": "222-22-22222",
+      "name": "미진분식 228직영점",
+      "address": "대구 중구 동성로2길 69 (공평동)",
+      "lat": 35.867909,
+      "lng": 128.598583,
+      "category": "분식",
+      "status": "영업",
+      "easyPayAffiliated": false,
+      "easyPayNote": null
+    },
+    {
+      "bizNo": "333-33-33333",
+      "name": "노스폴",
+      "address": "대구 중구 중앙대로 392 동성빌딩 4층",
+      "lat": 35.867204,
+      "lng": 128.59374,
+      "category": "카페",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이, 카카오페이"
+    },
+    {
+      "bizNo": "444-44-44444",
+      "name": "카페 루시드",
+      "address": "대구 중구 동성로4길 94 1층",
+      "lat": 35.867946,
+      "lng": 128.599661,
+      "category": "카페",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이"
+    },
+    {
+      "bizNo": "555-55-55555",
+      "name": "에이바헤어 교동점",
+      "address": "대구 중구 경상삼영길 167 2층",
+      "lat": 35.871987,
+      "lng": 128.599185,
+      "category": "미용실",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이"
+    },
+    {
+      "bizNo": "666-66-66666",
+      "name": "해피니언 대구동성로 1호점",
+      "address": "대구 중구 동성로2길 18-19 2층",
+      "lat": 35.866504,
+      "lng": 128.597148,
+      "category": "미용실",
+      "status": "영업",
+      "easyPayAffiliated": false,
+      "easyPayNote": null
+    },
+    {
+      "bizNo": "777-77-77777",
+      "name": "아트박스 대구 중앙점",
+      "address": "대구광역시 중구 동성로 39 지하 1층",
+      "lat": 35.869818,
+      "lng": 128.596041,
+      "category": "문구",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이 (확인필요)"
+    },
+    {
+      "bizNo": "888-88-88888",
+      "name": "교보핫트랙스 대구점",
+      "address": "대구 중구 국채보상로 586 교보생명 동성로사옥 지하 1층",
+      "lat": 35.870422,
+      "lng": 128.594768,
+      "category": "문구",
+      "status": "영업",
+      "easyPayAffiliated": true,
+      "easyPayNote": "제로페이 (확인필요)"
+    },
+    {
+      "bizNo": "999-99-99999",
+      "name": "사과문구",
+      "address": "대구 중구 동성로 일대 (가상 가게, 데모 시나리오용)",
+      "lat": 35.8685,
+      "lng": 128.5965,
+      "category": "문구",
+      "status": "폐업",
+      "easyPayAffiliated": false,
+      "easyPayNote": null
+    },
+    {
+      "bizNo": "010-10-10101",
+      "name": "행복공인중개사 (서울 관악점)",
+      "address": "서울 관악구 (이주 이벤트 감지용 가상 가게)",
+      "lat": 37.4784,
+      "lng": 126.9516,
+      "category": "부동산",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "020-20-20202",
+      "name": "이케아 서울 (이주 정착용)",
+      "address": "서울 관악구 (이주 이벤트 감지용 가상 가게)",
+      "lat": 37.475,
+      "lng": 126.955,
+      "category": "가구",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "131-31-31311",
+      "name": "다락방 만두",
+      "address": "대구 중구 경상감영1길 43 1층",
+      "lat": 35.8727,
+      "lng": 128.5921,
+      "category": "분식",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "131-31-31312",
+      "name": "바뷔치 중앙로점",
+      "address": "대구 중구 중앙대로81길 1층",
+      "lat": 35.8712,
+      "lng": 128.5939,
+      "category": "분식",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "131-31-31313",
+      "name": "동성로 떡볶이",
+      "address": "대구 중구 동성로 19-7 1층",
+      "lat": 35.8697,
+      "lng": 128.5954,
+      "category": "분식",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "141-41-41411",
+      "name": "넌테이블 본점",
+      "address": "대구 중구 경상감영길 62 1층",
+      "lat": 35.8722,
+      "lng": 128.5913,
+      "category": "카페",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "141-41-41412",
+      "name": "보바룸",
+      "address": "대구 중구 서성로 14길 71",
+      "lat": 35.8741,
+      "lng": 128.591,
+      "category": "카페",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "141-41-41413",
+      "name": "팜테이블",
+      "address": "대구 중구 동성로 6길 75 1층",
+      "lat": 35.8687,
+      "lng": 128.5996,
+      "category": "카페",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "151-51-51511",
+      "name": "제임스레코드",
+      "address": "대구 중구 동성로 3길 104-14 1층",
+      "lat": 35.8693,
+      "lng": 128.5985,
+      "category": "술집",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "151-51-51512",
+      "name": "요바나시",
+      "address": "대구 중구 중앙대로 81길 33 2층",
+      "lat": 35.8703,
+      "lng": 128.5925,
+      "category": "술집",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "151-51-51513",
+      "name": "하즈키",
+      "address": "대구 중구 약령길 83 1층",
+      "lat": 35.8718,
+      "lng": 128.5901,
+      "category": "술집",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "151-51-51514",
+      "name": "트랙",
+      "address": "대구 중구 국채보상로 125길 12 2층",
+      "lat": 35.8715,
+      "lng": 128.6006,
+      "category": "술집",
+      "status": "영업",
+      "localCurrencyAffiliated": false
+    },
+    {
+      "bizNo": "151-51-51515",
+      "name": "소란",
+      "address": "대구 중구 경상삼영길 210 1층",
+      "lat": 35.871,
+      "lng": 128.5982,
+      "category": "술집",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    },
+    {
+      "bizNo": "161-61-61611",
+      "name": "에스닷 대구점",
+      "address": "대구 중구 국채보상로 628",
+      "lat": 35.8698,
+      "lng": 128.5985,
+      "category": "문구",
+      "status": "영업",
+      "localCurrencyAffiliated": true
+    }
+  ]
+}

@@ -9,7 +9,7 @@ public record MerchantDashboardDto(
         @Schema(example = "12") int regularCount,
         @Schema(example = "3") int dormantCount,
         @Schema(example = "2") int newThisMonth,
-        @Schema(example = "10") int rankThreshold,
+        @Schema(example = "20") int rankThreshold,
         @Schema(example = "1") int weeklySlotUsed,
         @Schema(example = "2") int weeklySlotTotal) {
 }

@@ -1,0 +1,9 @@
+{
+  "categories": {
+    "분식": { "type": "count", "minVisits": 10, "periodMonths": 12 },
+    "카페": { "type": "count", "minVisits": 15, "periodMonths": 12 },
+    "문구": { "type": "count", "minVisits": 6, "periodMonths": 12 },
+    "미용실": { "type": "count", "minVisits": 5, "periodMonths": 24 },
+    "술집": { "type": "count", "minVisits": 8, "periodMonths": 12 }
+  }
+}

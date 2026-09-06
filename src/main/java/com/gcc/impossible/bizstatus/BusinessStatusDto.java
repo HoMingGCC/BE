@@ -9,7 +9,7 @@ import java.time.Instant;
  * @param message    화면에 보여줄 근거 문구
  */
 public record BusinessStatusDto(
-        @Schema(example = "514-81-10001") String regno,
+        @Schema(example = "111-11-11111") String regno,
         StoreStatus status,
         @Schema(example = "nts") String source,
         @Schema(example = "국세청 사업자등록상태 조회 결과 영업중입니다.") String message,

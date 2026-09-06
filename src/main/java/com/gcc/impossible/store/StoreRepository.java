@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StoreRepository extends JpaRepository<Store, String> {
 
-    List<Store> findByIndustryAndStatusAndRegnoNot(String industry, StoreStatus status, String regno);
+    List<Store> findByCategoryAndStatusAndRegnoNot(String category, StoreStatus status, String regno);
+
+    List<Store> findByDistrict(String district);
 }

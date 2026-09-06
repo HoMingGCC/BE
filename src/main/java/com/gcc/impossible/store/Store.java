@@ -1,6 +1,5 @@
 package com.gcc.impossible.store;
 
-import com.gcc.impossible.ontology.Category;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -34,11 +33,8 @@ public class Store {
 
     private double lng;
 
-    /** '분식' '미용실' '문구' 등 — 온톨로지 매칭용 */
-    private String industry;
-
-    @Enumerated(EnumType.STRING)
-    private Category category;
+    /** '분식' '미용실' '문구' 등 — 온톨로지 매칭용. 데이터팀 가게마스터 필드명 그대로. */
+    private String category;
 
     @Enumerated(EnumType.STRING)
     private StoreStatus status;

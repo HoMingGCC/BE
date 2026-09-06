@@ -29,7 +29,7 @@ public class StoreController {
     @Operation(summary = "사업자등록번호로 가게 단건 조회")
     @GetMapping("/{regno}")
     public StoreDto getByRegno(
-            @Parameter(example = "514-81-10001") @PathVariable String regno) {
+            @Parameter(example = "111-11-11111") @PathVariable String regno) {
         return StoreDto.from(storeService.getByRegno(regno));
     }
 }

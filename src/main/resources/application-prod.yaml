@@ -3,7 +3,7 @@
 #      (또는 환경변수 SPRING_PROFILES_ACTIVE=prod)
 spring:
   config:
-    import: classpath:ontology.yml
+    import: classpath:migration.yml
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}

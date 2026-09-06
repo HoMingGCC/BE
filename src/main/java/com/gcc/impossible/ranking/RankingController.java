@@ -24,7 +24,7 @@ public class RankingController {
     @Operation(summary = "상권별 단골 랭킹 조회", description = "카테고리로 필터링할 수 있으며, 생략 시 전체 업종을 반환한다.")
     @GetMapping("/{code}/ranking")
     public DistrictRankingDto getRanking(
-            @Parameter(example = "seomun") @PathVariable String code,
+            @Parameter(example = "dongseongro") @PathVariable String code,
             @Parameter(example = "meal") @RequestParam(required = false) Category category) {
         return districtRankingService.getRanking(code, category);
     }

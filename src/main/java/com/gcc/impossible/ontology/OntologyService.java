@@ -1,31 +1,48 @@
 package com.gcc.impossible.ontology;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-/** FE lib/ontology.ts 의 ruleOf() 포팅 — 정의되지 않은 업종은 기본값(기준 10회, 대체 불가)으로 처리 */
+/**
+ * 데이터팀(주희) 노션 "업종별 단골 판정 기준" — ontology.json을 그대로 읽어서 판정 엔진에 제공한다.
+ * 숫자를 Java 코드에 하드코딩하지 않고 JSON에서 불러오므로, 기준이 바뀌어도 이 클래스는 안 건드려도 된다.
+ */
 @Service
-@EnableConfigurationProperties(OntologyProperties.class)
 public class OntologyService {
 
-    private static final int DEFAULT_THRESHOLD = 10;
+    private static final String ONTOLOGY_FILE = "ontology.json";
+    private static final int DEFAULT_MIN_VISITS = 10;
+    private static final int DEFAULT_PERIOD_MONTHS = 12;
 
     private final Map<String, IndustryRule> rules;
 
-    public OntologyService(OntologyProperties properties) {
-        this.rules = properties.getIndustries().stream()
-                .map(e -> new IndustryRule(e.getIndustry(), e.getCategory(), e.getThreshold(), e.isSubstitutable()))
-                .collect(Collectors.toMap(IndustryRule::industry, Function.identity()));
+    public OntologyService() {
+        this.rules = loadRules();
     }
 
     public IndustryRule ruleOf(String industry) {
         IndustryRule rule = rules.get(industry);
         if (rule == null) {
-            return new IndustryRule(industry, Category.LIFE, DEFAULT_THRESHOLD, false);
+            return new IndustryRule(industry, "count", DEFAULT_MIN_VISITS, DEFAULT_PERIOD_MONTHS);
         }
         return rule;
+    }
+
+    private Map<String, IndustryRule> loadRules() {
+        try (InputStream in = new ClassPathResource(ONTOLOGY_FILE).getInputStream()) {
+            OntologyFile file = new ObjectMapper().readValue(in, OntologyFile.class);
+            return file.categories().entrySet().stream()
+                    .collect(Collectors.toMap(
+                            Map.Entry::getKey,
+                            e -> new IndustryRule(
+                                    e.getKey(), e.getValue().type(), e.getValue().minVisits(), e.getValue().periodMonths())));
+        } catch (IOException e) {
+            throw new IllegalStateException(ONTOLOGY_FILE + " 을 읽는 데 실패했습니다", e);
+        }
     }
 }
