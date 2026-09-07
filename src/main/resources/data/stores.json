@@ -8,8 +8,7 @@
       "lng": 128.593745,
       "category": "분식",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이"
+      "localCurrencyAffiliated": true
     },
     {
       "bizNo": "222-22-22222",
@@ -19,8 +18,7 @@
       "lng": 128.598583,
       "category": "분식",
       "status": "영업",
-      "easyPayAffiliated": false,
-      "easyPayNote": null
+      "localCurrencyAffiliated": false
     },
     {
       "bizNo": "333-33-33333",
@@ -30,8 +28,7 @@
       "lng": 128.59374,
       "category": "카페",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이, 카카오페이"
+      "localCurrencyAffiliated": true
     },
     {
       "bizNo": "444-44-44444",
@@ -41,8 +38,7 @@
       "lng": 128.599661,
       "category": "카페",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이"
+      "localCurrencyAffiliated": false
     },
     {
       "bizNo": "555-55-55555",
@@ -52,8 +48,7 @@
       "lng": 128.599185,
       "category": "미용실",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이"
+      "localCurrencyAffiliated": true
     },
     {
       "bizNo": "666-66-66666",
@@ -63,8 +58,7 @@
       "lng": 128.597148,
       "category": "미용실",
       "status": "영업",
-      "easyPayAffiliated": false,
-      "easyPayNote": null
+      "localCurrencyAffiliated": false
     },
     {
       "bizNo": "777-77-77777",
@@ -74,8 +68,7 @@
       "lng": 128.596041,
       "category": "문구",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이 (확인필요)"
+      "localCurrencyAffiliated": true
     },
     {
       "bizNo": "888-88-88888",
@@ -85,8 +78,7 @@
       "lng": 128.594768,
       "category": "문구",
       "status": "영업",
-      "easyPayAffiliated": true,
-      "easyPayNote": "제로페이 (확인필요)"
+      "localCurrencyAffiliated": false
     },
     {
       "bizNo": "999-99-99999",
@@ -96,8 +88,7 @@
       "lng": 128.5965,
       "category": "문구",
       "status": "폐업",
-      "easyPayAffiliated": false,
-      "easyPayNote": null
+      "localCurrencyAffiliated": false
     },
     {
       "bizNo": "010-10-10101",
